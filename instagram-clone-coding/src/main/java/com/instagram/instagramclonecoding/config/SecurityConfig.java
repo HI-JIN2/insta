@@ -23,7 +23,7 @@ public class SecurityConfig {
                 .requestMatchers("/", "/user/**", "/image/**", "/subscribe/**", "/comment/**", "/api/**").authenticated() //얘네는 인증 필요
                 .anyRequest().permitAll()
                 .and()
-                .formLogin()
+                .formLogin().permitAll()
                 .loginPage("/auth/signin") // GET
                 .loginProcessingUrl("/auth/signin") // POST -> 스프링 시큐리티가 로그인 프로세스 진행
                 .defaultSuccessUrl("/");//정상적으로 로그인 되었으면 / 페이지로
