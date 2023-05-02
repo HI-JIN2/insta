@@ -18,7 +18,7 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf().disable();
+        http.csrf().disable(); //CSRF 토큰 비활성화
         http.authorizeHttpRequests()
                 .requestMatchers("/", "/user/**", "/image/**", "/subscribe/**", "/comment/**", "/api/**").authenticated() //얘네는 인증 필요
                 .anyRequest().permitAll()

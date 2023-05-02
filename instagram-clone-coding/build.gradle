@@ -35,6 +35,21 @@ dependencies {
 	//use jsp
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
 	implementation group: 'org.glassfish.web', name: 'jakarta.servlet.jsp.jstl', version: '2.0.0'
+
+	// JPA
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	// Thymeleaf
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	// web
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	// lombok
+	compileOnly 'org.projectlombok:lombok'
+	// devTools
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	//MySql
+	runtimeOnly 'mysql:mysql-connector-java'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 tasks.named('test') {
