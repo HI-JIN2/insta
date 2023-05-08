@@ -16,6 +16,7 @@ public class User {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true) //유저 이름에 대한 제약조건
     private String username;
     private String password;
 

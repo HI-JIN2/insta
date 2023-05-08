@@ -17,6 +17,11 @@ import lombok.RequiredArgsConstructor;
 public class SecurityConfig {
 
     @Bean
+    public BCryptPasswordEncoder encode(){
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable(); //CSRF 토큰 비활성화
         http.authorizeHttpRequests()
