@@ -1,6 +1,7 @@
 package com.instagram.instagramclonecoding.handler;
 
 import com.instagram.instagramclonecoding.handler.ex.CustomValidationException;
+import com.instagram.instagramclonecoding.web.dto.CMRespDto;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -13,9 +14,9 @@ import java.util.Map;
 public class ControllerExceptionHanlder {
 
     @ExceptionHandler(CustomValidationException.class)
-    public Map<String,String> validationException(CustomValidationException e){
+    public CMRespDto<?> validationException(CustomValidationException e){
 
-        return e.getErrorMap();
+        return new CMRespDto<Map<String,String>>(-1, e.getMessage(), e.getErrorMap());
     }
 
 
