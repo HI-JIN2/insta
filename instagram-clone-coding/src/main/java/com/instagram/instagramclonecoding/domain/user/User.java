@@ -16,13 +16,15 @@ public class User {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true) //유저 이름에 대한 제약조건
+    @Column(length = 20, unique = true) //유저 이름에 대한 제약조건
     private String username;
+    @Column(nullable = false)
     private String password;
-
+    @Column(nullable = false)
     private String name;
     private String website;
     private String bio;
+    @Column(nullable = false)
     private String email;
     private String phone;
     private String gender;
