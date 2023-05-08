@@ -1,14 +1,12 @@
 package com.instagram.instagramclonecoding.domain.user;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Generated;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 //JPA- Java Persistence API (자바로 데이터를 영구적으로 저장(DB)할 수 있는 API를 제공)
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
