@@ -8,12 +8,14 @@ import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import service.AuthService;
 
 import java.util.HashMap;
@@ -21,6 +23,7 @@ import java.util.Map;
 
 @RequiredArgsConstructor //final 필드를 DI할 때 사용(final에 대한 모든 생성자를 만들어줌)
 @Controller //1. IoC 2. 파일을 리턴하는 컨트롤러
+@RestController
 public class AuthController {
 
     private static final Logger log= LoggerFactory.getLogger(AuthController.class);

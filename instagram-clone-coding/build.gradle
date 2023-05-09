@@ -65,6 +65,8 @@ dependencies {
 //		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 //	}
 
+	implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.4.1'
+
 //이부분을 추가 {
 	implementation('org.mariadb.jdbc:mariadb-java-client:3.1.2')
 // }
