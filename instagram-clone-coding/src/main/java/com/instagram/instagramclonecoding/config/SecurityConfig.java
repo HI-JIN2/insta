@@ -26,8 +26,8 @@ public class SecurityConfig {
         http.csrf().disable(); //CSRF 토큰 비활성화
         http.authorizeHttpRequests()
                 .requestMatchers("/", "/user/**", "/image/**", "/subscribe/**", "/comment/**", "/api/**").authenticated() //얘네는 인증 필요
-                .anyRequest().permitAll()
-                .and()
+                .anyRequest().permitAll()//어떤 요청이든간에
+                .and() //아마도 분기?
                 .formLogin().permitAll()
                 .loginPage("/auth/signin") // GET
                 .loginProcessingUrl("/auth/signin") // POST -> 스프링 시큐리티가 로그인 프로세스 진행
