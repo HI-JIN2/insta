@@ -1,8 +1,12 @@
 package com.instagram.instagramclonecoding.handler;
 
+import com.instagram.instagramclonecoding.handler.ex.CustomApiException;
+import com.instagram.instagramclonecoding.handler.ex.CustomValidationApiException;
 import com.instagram.instagramclonecoding.handler.ex.CustomValidationException;
 import com.instagram.instagramclonecoding.util.Script;
 import com.instagram.instagramclonecoding.web.dto.CMRespDto;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -24,4 +28,14 @@ public class ControllerExceptionHanlder {
     }
 
 
+    @ExceptionHandler(CustomValidationException.class)
+    public ResponseEntity<?> validationApiException(CustomValidationApiException e){
+        return new ResponseEntity<>(new CMRespDto<>(-1,e.getMessage(),e.getErrorMap()), HttpStatus.BAD_REQUEST);
+    }
+
+
+    @ExceptionHandler(CustomApiException.class)
+    public ResponseEntity<?> apiException(CustomApiException e){
+        return new ResponseEntity<>(new CMRespDto<>(-1,e.getMessage(),null), HttpStatus.BAD_REQUEST);
+    }
 }
